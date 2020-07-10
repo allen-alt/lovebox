@@ -26,21 +26,21 @@ public class FrmUserReg extends JDialog implements ActionListener{
 	
 	private JLabel labeluser_name = new JLabel("姓名：");
 	private JLabel labelsex = new JLabel("性别：");
-	private JLabel labelPwd = new JLabel("密码：");
+	private JLabel labelpwd = new JLabel("密码：");
 	private JLabel labelphone = new JLabel("手机号码：");
 	private JLabel labelemail = new JLabel("邮箱：");
 	private JLabel labelcity = new JLabel("所在城市：");
 	private JLabel labelifvip = new JLabel("是否会员：");
 	private JLabel labelviptime = new JLabel("会员时长(月)：");
 	
-	private JPasswordField edtuser_name = new JPasswordField(20);
-	private JPasswordField edtsex = new JPasswordField(20);
-	private JPasswordField edtPwd = new JPasswordField(20);
-	private JPasswordField edtphone = new JPasswordField(20);
-	private JPasswordField edtemail = new JPasswordField(20);
-	private JPasswordField edtcity = new JPasswordField(20);
-	private JPasswordField edtifvip = new JPasswordField(20);
-	private JPasswordField edtviptime = new JPasswordField(20);
+	private JTextField edtuser_name = new JTextField(20);
+	private JTextField edtsex = new JTextField(20);
+	private JTextField edtpwd = new JTextField(20);
+	private JTextField edtphone = new JTextField(20);
+	private JTextField edtemail = new JTextField(20);
+	private JTextField edtcity = new JTextField(20);
+	private JTextField edtifvip = new JTextField(20);
+	private JTextField edtviptime = new JTextField(20);
 	
 	public FrmUserReg (Dialog f, String s, boolean b) {
 		super(f, s, b);
@@ -53,8 +53,8 @@ public class FrmUserReg extends JDialog implements ActionListener{
 		workPane.add(edtuser_name);
 		workPane.add(labelsex);
 		workPane.add(edtsex);
-		workPane.add(labelPwd);
-		workPane.add(edtPwd);
+		workPane.add(labelpwd);
+		workPane.add(edtpwd);
 		workPane.add(labelphone);
 		workPane.add(edtphone);
 		workPane.add(labelemail);
@@ -80,12 +80,14 @@ public class FrmUserReg extends JDialog implements ActionListener{
 		if(e.getSource()==this.btnCancel)
 			this.setVisible(false);
 		else if(e.getSource()==this.btnOk){
-			String user_name=new String(this.edtPwd.getPassword());
 			
-			String pwd1=new String(this.edtPwd.getPassword());
+			String user_name=new String(this.edtuser_name.getText());
+			String sex=new String(this.edtsex.getText());
+			
+			String pwd1=new String(this.edtpwd.getText());
 			
 			try {
-				User user=(new userManager()).reg(pwd1);
+				User user=(new userManager()).reg(user_name,sex,pwd1);
 				JOptionPane.showMessageDialog(null, "注册成功","成功",JOptionPane.INFORMATION_MESSAGE);
 				this.setVisible(false);
 			} catch (BaseException e1) {

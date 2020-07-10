@@ -33,6 +33,7 @@ public class AdManager {
 			pst.execute();
 			Ad zwx = new Ad();
 			zwx.setAd_id(stuff_id);
+			zwx.setAd_name(stuff_name);
 			zwx.setAd_pwd(pwd);
 			
 			

@@ -10,7 +10,7 @@ import cn.util.*;
 
 public class userManager {
 	//关于用户的注册、登录
-	public User reg(String pwd) throws BaseException {
+	public User reg(String user_name,String sex,String pwd) throws BaseException {
 		
 		
 		java.sql.Connection conn=null;
@@ -31,6 +31,7 @@ public class userManager {
 			pst.execute();
 			User zwx = new User();
 			zwx.setUser_id(user_id);
+			zwx.setUser_name(user_name);
 			zwx.setUser_pwd(pwd);
 			
 			
@@ -54,7 +55,7 @@ public class userManager {
 	
 	
 	
-	public User login(int userid, String pwd) throws BaseException {
+	public User login(int userid,String pwd) throws BaseException {
 		java.sql.Connection conn=null;
 		try {
 			User zwx = new User();
@@ -73,6 +74,7 @@ public class userManager {
 			
 			
 			zwx.setUser_id(userid);
+			
 			
 			rs.close();
 			pst.close();

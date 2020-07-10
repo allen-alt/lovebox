@@ -62,11 +62,11 @@ public class FrmAdReg extends JDialog implements ActionListener{
 		else if(e.getSource()==this.btnOk){
 			String stuff_name=new String(this.edtstuff_name.getText());
 			
-			String stuff_pwd=new String(this.edtpwd.getPassword());
+			//String stuff_pwd=new String(this.edtpwd.getPassword());
 			String pwd1=new String(this.edtpwd.getPassword());
 			
 			try {
-				Ad pwd=(new AdManager()).reg(pwd1);
+				Ad ad=(new AdManager()).reg(stuff_name,pwd1);
 				JOptionPane.showMessageDialog(null, "注册成功","成功",JOptionPane.INFORMATION_MESSAGE);
 				this.setVisible(false);
 			} catch (BaseException e1) {
