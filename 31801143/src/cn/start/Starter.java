@@ -1,6 +1,6 @@
 package cn.start;
 
-import cn.ui.FrmMain;
+import cn.view.FrmMain;
 
 public class Starter {
 
