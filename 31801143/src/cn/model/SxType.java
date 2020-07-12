@@ -7,6 +7,12 @@ public class SxType {
 	
 	
 	
+	public SxType(int id, String sxTypeName, String sxTypeDesc) {
+		super();
+		this.id = id;
+		this.sxTypeName = sxTypeName;
+		this.sxTypeDesc = sxTypeDesc;
+	}
 	public SxType(String sxTypeName, String sxTypeDesc) {
 		super();
 		this.sxTypeName = sxTypeName;
@@ -34,6 +40,12 @@ public class SxType {
 	public void setSxTypeDesc(String sxTypeDesc) {
 		this.sxTypeDesc = sxTypeDesc;
 	}
+	
+	@Override
+	public String toString() {
+		return sxTypeName;
+	}
+	
 	
 	
 

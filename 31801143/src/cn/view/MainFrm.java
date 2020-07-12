@@ -57,21 +57,34 @@ public class MainFrm extends JFrame {
 		JMenuItem menuItem_2 = new JMenuItem("生鲜类别添加");
 		menuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SxTypeAddInterFrm shengxianTypeAddInterFrm=new SxTypeAddInterFrm();
-				
-				table.add(shengxianTypeAddInterFrm);
-				shengxianTypeAddInterFrm.setVisible(true);
+				SxTypeAddInterFrm sxTypeAddInterFrm=new SxTypeAddInterFrm();
+				table.add(sxTypeAddInterFrm);
+				sxTypeAddInterFrm.setVisible(true);
 			}
 		});
 		mnNewMenu_2.add(menuItem_2);
 		
 		JMenuItem menuItem_3 = new JMenuItem("生鲜类别维护");
+		menuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                SxTypeManageInterFrm sxTypeManageInterFrm=new SxTypeManageInterFrm();
+				table.add(sxTypeManageInterFrm);
+				sxTypeManageInterFrm.setVisible(true);
+			}
+		});
 		mnNewMenu_2.add(menuItem_3);
 		
 		JMenu menu = new JMenu("商品管理");
 		mnNewMenu.add(menu);
 		
 		JMenuItem menuItem = new JMenuItem("商品添加");
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GoodsAddInterFrm goodsAddInterFrm=new GoodsAddInterFrm();
+				table.add(goodsAddInterFrm);
+				goodsAddInterFrm.setVisible(true);
+			}
+		});
 		menu.add(menuItem);
 		
 		JMenuItem menuItem_1 = new JMenuItem("商品维护");

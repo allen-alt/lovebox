@@ -33,5 +33,35 @@ public class SxTypeDao {
 		PreparedStatement pstmt=con.prepareStatement(sb.toString().replaceFirst("and","where"));
 		return pstmt.executeQuery();
 	}
+	
+	/**
+	 * 删除生鲜类别
+	 * @param con
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	public int delete(Connection con,String id)throws Exception{
+		String sql="delete from sxType where id=?";
+		PreparedStatement pstmt=con.prepareStatement(sql);
+		pstmt.setString(1, id);
+		return pstmt.executeUpdate();
+	}
+	
+	/**
+	 * 更新生鲜类别
+	 * @param con
+	 * @param sxType
+	 * @return
+	 * @throws Exception
+	 */
+	public int update(Connection con,SxType sxType)throws Exception{
+		String sql="update sxType set sxTypeName=?,sxTypeDesc=? where id=?";
+		PreparedStatement pstmt=con.prepareStatement(sql);
+		pstmt.setString(1,sxType.getSxTypeName());
+		pstmt.setString(2,sxType.getSxTypeDesc());
+		pstmt.setInt(3,sxType.getId());
+		return pstmt.executeUpdate();
+	}
 
 }
